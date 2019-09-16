@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 Route::get('profile','ProfileController@profile')->name('usr.profile');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
