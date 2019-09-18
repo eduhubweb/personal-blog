@@ -58,7 +58,7 @@
                     <a class="dropdown-item" href="#"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                    <a class="dropdown-item" href="#"><i class="ti-email m-r-5 m-l-5"></i> Logout</a>
+                    <a class="dropdown-item" href="{{url('emergency-logout')}}"><i class="ti-email m-r-5 m-l-5"></i> Logout</a>
                 </div>
             </li>
             <!-- ============================================================== -->
