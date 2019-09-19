@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function (){
     Route::get('dashboard','DashboardController@index')->name('dashboard');
     Route::get('profile','ProfileController@profile')->name('user.profile');
     Route::resource('category','CategoryController');
+    Route::resource('author','AuthorController');
 });
 
 Route::get('emergency-logout',function (){
