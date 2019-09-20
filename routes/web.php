@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function (){
     Route::get('profile','ProfileController@profile')->name('user.profile');
     Route::resource('category','CategoryController');
     Route::resource('author','AuthorController');
+    Route::resource('post','PostController');
 });
 
 Route::get('emergency-logout',function (){
