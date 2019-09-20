@@ -16,6 +16,7 @@
                         <th scope="col">Category</th>
                         <th scope="col">Author</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Created_at</th>
                         <th scope="col">Updated_at</th>
                         <th scope="col">Action</th>
@@ -30,6 +31,9 @@
                             <td>{{$post->category->name}}</td>
                             <td>{{$post->author->name}}</td>
                             <td>{{$post->status}}</td>
+                            <td>
+                                <img src="{{asset($post->file)}}" height="80" width="80" alt="">
+                            </td>
                             <td>{{$post->created_at}}</td>
                             <td>{{$post->updated_at}}</td>
                             <td>

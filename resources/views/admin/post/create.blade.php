@@ -3,13 +3,13 @@
     <div class="col-lg-8 col-xlg-9 col-md-7">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('post.store')}}" method="post" class="form-horizontal form-material">
+                <form action="{{route('post.store')}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
                     @csrf
                     @include('admin.post._form')
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button class="btn btn-success">Update Profile</button>
+                            <button class="btn btn-success">Create Post</button>
                         </div>
                     </div>
                 </form>
