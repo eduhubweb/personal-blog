@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('home');
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 Route::get('login','AdminLoginController@adminLoginForm')->name('admin.loginForm');

@@ -37,6 +37,19 @@
     @enderror
 </div>
 <div class="form-group">
+    <label class="col-md-12">Upload Image</label>
+
+    @if(isset($author) && $author->image !==null)
+        <img src="{{asset($author->image)}}" alt="" width="80" height="80">
+        @endif
+    <div class="col-md-12">
+        <input name="image"  type="file" placeholder="Upload Author Image" class="form-control form-control-line @error('image') is-invalid @enderror">
+    </div>
+    @error('image')
+    <div class="text text-danger">{{$message}}</div>
+    @enderror
+</div>
+<div class="form-group">
     <label class="col-sm-12">Gender</label>
     @php
         if(old('gender'))

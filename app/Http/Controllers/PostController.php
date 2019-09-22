@@ -53,6 +53,9 @@ class PostController extends Controller
             'category_id'=>'required',
             'author_id'=>'required',
             'status'=>'required',
+            'file'=>'required',
+            'published_at'=>'required',
+            'is_featured'=>'required',
 
         ]);
         $data_r=$request->except('_token');
@@ -105,11 +108,14 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
-            'details' => 'required',
-            'category_id' => 'required',
-            'author_id' => 'required',
-            'status' => 'required',
+            'title'=>'required',
+            'details'=>'required',
+            'category_id'=>'required',
+            'author_id'=>'required',
+            'status'=>'required',
+            'file'=>'required',
+            'published_at'=>'required',
+            'is_featured'=>'required',
         ]);
         $data = $request->except('_token');
         //file upload update
@@ -133,7 +139,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
+    {   File::delete($post->file);
         $post->delete();
         Session()->flash('message','Post Deleted Successfully');
         return redirect()->route('post.index');

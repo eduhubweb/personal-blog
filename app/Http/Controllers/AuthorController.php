@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use test\Mockery\MockClassWithMethodOverloadingTest;
 
 class AuthorController extends Controller
 {
@@ -46,11 +48,22 @@ class AuthorController extends Controller
             'email'=>'required|email',
             'phone'=>'required',
             'address'=>'required',
-            'gender'=>'required'
+            'gender'=>'required',
+            'image'=>'required',
 
         ]);
 
         $data=$request->except('_token');
+        if ($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $file->move('image/author/',$file->getClientOriginalName());
+            $data['image']='image/author/'.$file->getClientOriginalName();
+        }
+
+        $file=$request->file('image');
+        $file=move('image/author/',$file->getClientOriginalName());
+
         Author::create($data);
         Session()->flash('message','Author Created Successfully');
         return redirect()->route('author.index');
@@ -96,8 +109,16 @@ class AuthorController extends Controller
             'address'=>'required',
             'phone'=>'required',
             'gender'=>'required',
+            'image'=>'required',
         ]);
         $data=$request->except('_token');
+         if($request->hasFile('image')){
+             $file=$request->file('image');
+             $file->move('image/author/',$file->getClientOriginalName());
+             File::delete($author->image);
+             $data['image']='image/author/'.$file->getClientOriginalName();
+         }
+
          $author->update($data);
          Session()->flash('message','Author Updated Successfully');
          return redirect()->route('author.index');
@@ -111,6 +132,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
+        File::delete($author->image);
         $author->delete();
         Session()->flash('message','Author Deleted Successfully');
         return redirect()->route('author.index');
