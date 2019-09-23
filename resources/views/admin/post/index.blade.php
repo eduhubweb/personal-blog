@@ -18,8 +18,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Post_Title</th>
                             <th scope="col">details</th>
-                            <th scope="col">atuthor_name</th>
-                            <th scope="col">atuthor_image</th>
+
                             <th scope="col">category_name</th>
                             <th scope="col">status</th>
                             <th scope="col">total_view</th>
@@ -37,10 +36,8 @@
                                 <td>{{$serial++}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->details}}</td>
-                                <td>{{$post->author->name}}</td>
-                                <td>
-                                    <img src="{{asset($post->author->image)}}" width="40" height="40" alt="">
-                                </td>
+
+
                                 <td>{{$post->category->name}}</td>
                                 <td>{{ucfirst($post->status)}}</td>
                                 <td>{{($post->total_view)}}</td>

@@ -61,8 +61,7 @@ class AuthorController extends Controller
             $data['image']='image/author/'.$file->getClientOriginalName();
         }
 
-        $file=$request->file('image');
-        $file=move('image/author/',$file->getClientOriginalName());
+
 
         Author::create($data);
         Session()->flash('message','Author Created Successfully');

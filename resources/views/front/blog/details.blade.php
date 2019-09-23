@@ -112,16 +112,7 @@
                     <div class="widget-content">
                         <!-- Single Post -->
                         @foreach($featured_post as $featured)
-                        <div class="featured-post">
-                            <!-- Post Thumbnail -->
-                            <a href="blog-details.html">
-                                <img src="{{asset($featured->file)}}" alt="" class="img-fluid">
-                            </a>
-                            <!-- Post Title -->
-                            <div class="featured-post-title">
-                                <h6> <a href="{{route('blog.details',$featured->id)}}">{{$featured->title}}</a> </h6>
-                            </div>
-                        </div>
+                          @include('front.blog._right-featured-post')
                         @endforeach
                         <!-- End of Single Post -->
 
@@ -155,18 +146,7 @@
                     <div class="widget-content">
                         @foreach($recent_post as $recent)
                         <!-- Single Post -->
-                        <div class="wrp-cover">
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumb">
-                                <a href="{{route('blog.details',$recent->id)}}">
-                                    <img src="{{asset($recent->file)}}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                            <!-- Post Title -->
-                            <div class="post-title">
-                                <a href="{{route('blog.details',$recent->id)}}">{{$recent->title}}</a>
-                            </div>
-                        </div>
+                          @include('front.blog._right-recent-post')
                         @endforeach
 
                         <!-- Single Post -->
