@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
+        $data['featured_post']=Post::with('category','author')->where('is_featured',1)->where('status','published')->limit(3)->latest()->get();
+       // dd($data['featured_post'][0]->file);
         $data['recent_post']=Post::with('category','author')->where('status','published')->limit(3)->latest()->get();
 
         return view('front.home',$data);
