@@ -20,6 +20,7 @@
                             <th scope="col">Phone</th>
                             <th scope="col">Gender</th>
                             <th scope="col">Address</th>
+                            <th scope="col">Details</th>
                             <th scope="col">image</th>
                             <th scope="col">Created_at</th>
                             <th scope="col">Updated_at</th>
@@ -35,6 +36,7 @@
                                     <td>{{$author->phone}}</td>
                                     <td>{{ucfirst($author->gender)}}</td>
                                     <td>{{$author->address}}</td>
+                                    <td>{{$author->details}}</td>
                                     <td>
                                         <img src="{{asset($author->image)}}" alt="" width="80" height="80">
                                     </td>

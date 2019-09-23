@@ -37,6 +37,15 @@
     @enderror
 </div>
 <div class="form-group">
+    <label class="col-md-12">Details</label>
+    <div class="col-md-12">
+        <textarea rows="5" name="details" class="form-control form-control-line @error('details') is-invalid @enderror">{{old('details',isset($author)?$author->details:null)}}</textarea>
+    </div>
+    @error('details')
+    <div class="text text-danger">{{$message}}</div>
+    @enderror
+</div>
+<div class="form-group">
     <label class="col-md-12">Upload Image</label>
 
     @if(isset($author) && $author->image !==null)

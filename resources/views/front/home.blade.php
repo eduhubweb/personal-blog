@@ -1,7 +1,7 @@
 @extends('front.frontTheme.master')
 @section('content')
     <div class="section-title text-center">
-        <h2>Trending Post</h2>
+        <h2>Featured Post</h2>
     </div>
     <div class="row">
         <div class="col-lg-6 order-lg-2">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="post-data">
                     <!-- Category -->
-                    <div class="cats"><a href="category-result.html">Fashion</a></div>
+                    <div class="cats"><a href="#">Fashion</a></div>
                     <!-- Title -->
                     <div class="title">
                         <h2><a href="blog-details.html">Understanding The Background <br> Of Fashion</a></h2>
@@ -115,7 +115,7 @@
                                     <div class="cats"><a href="category-result.html">{{ucfirst($post->category->name)}}</a></div>
                                     <!-- Title -->
                                     <div class="title">
-                                        <h2><a href="blog-details.html">{{$post->title}}</a></h2>
+                                        <h2><a href="{{route('blog.details',$post->id)}}">{{$post->title}}</a></h2>
                                     </div>
                                     <!-- Post Meta -->
                                     <ul class="nav meta align-items-center">
@@ -134,7 +134,7 @@
                                         </p>
                                     </div>
                                     <!-- Read More Button -->
-                                    <a href="blog-details.html" class="btn btn-primary">View More</a>
+                                    <a href="{{route('blog.details',$post->id)}}" class="btn btn-primary">View More</a>
                                 </div>
                             </div>
                         </div>
