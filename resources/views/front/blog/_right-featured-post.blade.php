@@ -1,4 +1,4 @@
-
+@foreach($featured_post as $featured)
 <div class="featured-post">
     <!-- Post Thumbnail -->
     <a href="blog-details.html">
@@ -9,3 +9,4 @@
         <h6> <a href="{{route('blog.details',$featured->id)}}">{{$featured->title}}</a> </h6>
     </div>
 </div>
+@endforeach

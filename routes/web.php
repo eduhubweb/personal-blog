@@ -13,6 +13,7 @@
 
 Route::get('/','HomeController@index')->name('home');
 Route::get('blog_details/{id}','HomeController@blog_details')->name('blog.details');
+Route::get('category/{id}','HomeController@category_post')->name('category.post');
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 Route::get('login','AdminLoginController@adminLoginForm')->name('admin.loginForm');
